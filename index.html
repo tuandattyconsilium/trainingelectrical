@@ -1,264 +1,140 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
- <HEAD>
-  <TITLE> I Love You </TITLE>
-  <META NAME="Generator" CONTENT="EditPlus">
-  <META NAME="Author" CONTENT="">
-  <META NAME="Keywords" CONTENT="">
-  <META NAME="Description" CONTENT="">
-  <style>
-  html, body {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  background: #000;
-}
-canvas {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-  </style>
- </HEAD>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV của Phạm Tuấn Đạt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #f3f4f6;
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        .icon {
+            color: #4a5568;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6 sm:p-10 flex justify-center items-center min-h-screen">
 
- <BODY>
-  <canvas id="pinkboard"></canvas>
-  <script>
-  /*
- * Settings
- */
-var settings = {
-  particles: {
-    length:   500, // maximum amount of particles
-    duration:   2, // particle duration in sec
-    velocity: 100, // particle velocity in pixels/sec
-    effect: -0.75, // play with this for a nice effect
-    size:      30, // particle size in pixels
-  },
-};
+    <div class="container mx-auto p-4 md:p-8">
+        <div class="card flex flex-col items-center text-center">
+            <!-- Profile Image -->
+            <img src="./logo.png" alt="Profile Picture" class="profile-img mb-4">
+            
+            <!-- Personal Info -->
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">PHẠM TUẤN ĐẠT</h1>
+            <h2 class="text-lg text-gray-600 mb-6">Kỹ sư Điện Tàu thủy</h2>
 
-/*
- * RequestAnimationFrame polyfill by Erik Möller
- */
-(function(){var b=0;var c=["ms","moz","webkit","o"];for(var a=0;a<c.length&&!window.requestAnimationFrame;++a){window.requestAnimationFrame=window[c[a]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[c[a]+"CancelAnimationFrame"]||window[c[a]+"CancelRequestAnimationFrame"]}if(!window.requestAnimationFrame){window.requestAnimationFrame=function(h,e){var d=new Date().getTime();var f=Math.max(0,16-(d-b));var g=window.setTimeout(function(){h(d+f)},f);b=d+f;return g}}if(!window.cancelAnimationFrame){window.cancelAnimationFrame=function(d){clearTimeout(d)}}}());
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-gray-700 mb-8">
+                <p class="flex items-center space-x-2"><i class="fas fa-phone icon"></i><span>(Điền số điện thoại)</span></p>
+                <p class="flex items-center space-x-2"><i class="fas fa-envelope icon"></i><span>(Điền email)</span></p>
+                <p class="flex items-center space-x-2"><i class="fas fa-map-marker-alt icon"></i><span>(Điền địa chỉ)</span></p>
+                <p class="flex items-center space-x-2"><i class="fab fa-linkedin icon"></i><span>(Điền đường dẫn LinkedIn, nếu có)</span></p>
+            </div>
+        </div>
 
-/*
- * Point class
- */
-var Point = (function() {
-  function Point(x, y) {
-    this.x = (typeof x !== 'undefined') ? x : 0;
-    this.y = (typeof y !== 'undefined') ? y : 0;
-  }
-  Point.prototype.clone = function() {
-    return new Point(this.x, this.y);
-  };
-  Point.prototype.length = function(length) {
-    if (typeof length == 'undefined')
-      return Math.sqrt(this.x * this.x + this.y * this.y);
-    this.normalize();
-    this.x *= length;
-    this.y *= length;
-    return this;
-  };
-  Point.prototype.normalize = function() {
-    var length = this.length();
-    this.x /= length;
-    this.y /= length;
-    return this;
-  };
-  return Point;
-})();
+        <!-- Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            
+            <!-- Objective -->
+            <div class="card">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-bullseye mr-3 icon"></i>Mục tiêu nghề nghiệp</h3>
+                <p class="text-gray-700 leading-relaxed">Trở thành một Kỹ sư điện tàu thủy chuyên nghiệp, đóng góp vào sự phát triển của công ty bằng kiến thức chuyên sâu và kinh nghiệm thực tế. Mong muốn được làm việc trong môi trường năng động, có cơ hội học hỏi và thăng tiến, nhằm nâng cao tay nghề và đạt được các chứng chỉ quốc tế.</p>
+            </div>
+            
+            <!-- Education -->
+            <div class="card">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-graduation-cap mr-3 icon"></i>Học vấn</h3>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="font-semibold text-lg text-gray-800">(Điền năm) - (Điền năm)</p>
+                        <p class="text-gray-700 font-medium">**Tên trường Đại học**</p>
+                        <p class="text-gray-600">Chuyên ngành: Kỹ sư Điện tàu thủy</p>
+                        <p class="text-gray-600">Xếp loại: (Điền xếp loại, ví dụ: Giỏi/Khá)</p>
+                    </div>
+                </div>
+            </div>
 
-/*
- * Particle class
- */
-var Particle = (function() {
-  function Particle() {
-    this.position = new Point();
-    this.velocity = new Point();
-    this.acceleration = new Point();
-    this.age = 0;
-  }
-  Particle.prototype.initialize = function(x, y, dx, dy) {
-    this.position.x = x;
-    this.position.y = y;
-    this.velocity.x = dx;
-    this.velocity.y = dy;
-    this.acceleration.x = dx * settings.particles.effect;
-    this.acceleration.y = dy * settings.particles.effect;
-    this.age = 0;
-  };
-  Particle.prototype.update = function(deltaTime) {
-    this.position.x += this.velocity.x * deltaTime;
-    this.position.y += this.velocity.y * deltaTime;
-    this.velocity.x += this.acceleration.x * deltaTime;
-    this.velocity.y += this.acceleration.y * deltaTime;
-    this.age += deltaTime;
-  };
-  Particle.prototype.draw = function(context, image) {
-    function ease(t) {
-      return (--t) * t * t + 1;
-    }
-    var size = image.width * ease(this.age / settings.particles.duration);
-    context.globalAlpha = 1 - this.age / settings.particles.duration;
-    context.drawImage(image, this.position.x - size / 2, this.position.y - size / 2, size, size);
-  };
-  return Particle;
-})();
+            <!-- Skills -->
+            <div class="card md:col-span-2">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-tools mr-3 icon"></i>Kỹ năng chuyên môn</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <p class="text-gray-700"><span class="font-semibold text-gray-800">Điện - Điện tử:</span> Am hiểu các hệ thống điện trên tàu thủy, bao gồm máy phát điện, tủ điện chính, hệ thống chiếu sáng, hệ thống điều khiển và giám sát.</p>
+                    <p class="text-gray-700"><span class="font-semibold text-gray-800">Động cơ:</span> Có kiến thức về nguyên lý hoạt động và bảo trì các loại động cơ điện, động cơ diesel.</p>
+                    <p class="text-gray-700"><span class="font-semibold text-gray-800">Hệ thống tự động:</span> Thành thạo các hệ thống điều khiển tự động, PLC, hệ thống báo động và an toàn trên tàu.</p>
+                    <p class="text-gray-700"><span class="font-semibold text-gray-800">Phần mềm chuyên ngành:</span> Sử dụng thành thạo các phần mềm mô phỏng và thiết kế như AutoCAD Electrical, EPLAN, MATLAB (nếu có).</p>
+                    <p class="text-gray-700"><span class="font-semibold text-gray-800">Tiêu chuẩn an toàn:</span> Nắm vững các quy định, tiêu chuẩn an toàn hàng hải và các quy trình bảo trì, sửa chữa.</p>
+                </div>
+            </div>
+            
+            <!-- Work Experience -->
+            <div class="card md:col-span-2">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-briefcase mr-3 icon"></i>Kinh nghiệm làm việc</h3>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="font-semibold text-lg text-gray-800">(Điền năm) - (Điền năm) | Kỹ sư Điện tàu thủy</p>
+                        <p class="text-gray-700 font-medium">(Điền tên công ty/đơn vị)</p>
+                        <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                            <li>Lập kế hoạch và thực hiện bảo trì, sửa chữa định kỳ các hệ thống điện trên tàu.</li>
+                            <li>Chẩn đoán và khắc phục sự cố hệ thống điện, đảm bảo tàu vận hành an toàn và hiệu quả.</li>
+                            <li>Tham gia lắp đặt, đấu nối hệ thống điện mới cho các dự án đóng tàu.</li>
+                            <li>Giám sát việc tuân thủ các quy trình an toàn lao động và tiêu chuẩn kỹ thuật.</li>
+                        </ul>
+                        <p class="text-sm italic text-gray-500 mt-2">(Thêm các công việc khác nếu có)</p>
+                    </div>
+                </div>
+            </div>
 
-/*
- * ParticlePool class
- */
-var ParticlePool = (function() {
-  var particles,
-      firstActive = 0,
-      firstFree   = 0,
-      duration    = settings.particles.duration;
-  
-  function ParticlePool(length) {
-    // create and populate particle pool
-    particles = new Array(length);
-    for (var i = 0; i < particles.length; i++)
-      particles[i] = new Particle();
-  }
-  ParticlePool.prototype.add = function(x, y, dx, dy) {
-    particles[firstFree].initialize(x, y, dx, dy);
-    
-    // handle circular queue
-    firstFree++;
-    if (firstFree   == particles.length) firstFree   = 0;
-    if (firstActive == firstFree       ) firstActive++;
-    if (firstActive == particles.length) firstActive = 0;
-  };
-  ParticlePool.prototype.update = function(deltaTime) {
-    var i;
-    
-    // update active particles
-    if (firstActive < firstFree) {
-      for (i = firstActive; i < firstFree; i++)
-        particles[i].update(deltaTime);
-    }
-    if (firstFree < firstActive) {
-      for (i = firstActive; i < particles.length; i++)
-        particles[i].update(deltaTime);
-      for (i = 0; i < firstFree; i++)
-        particles[i].update(deltaTime);
-    }
-    
-    // remove inactive particles
-    while (particles[firstActive].age >= duration && firstActive != firstFree) {
-      firstActive++;
-      if (firstActive == particles.length) firstActive = 0;
-    }
-    
-    
-  };
-  ParticlePool.prototype.draw = function(context, image) {
-    // draw active particles
-    if (firstActive < firstFree) {
-      for (i = firstActive; i < firstFree; i++)
-        particles[i].draw(context, image);
-    }
-    if (firstFree < firstActive) {
-      for (i = firstActive; i < particles.length; i++)
-        particles[i].draw(context, image);
-      for (i = 0; i < firstFree; i++)
-        particles[i].draw(context, image);
-    }
-  };
-  return ParticlePool;
-})();
+            <!-- Soft Skills & Languages -->
+            <div class="card">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-users mr-3 icon"></i>Kỹ năng mềm & Ngoại ngữ</h3>
+                <div class="space-y-2">
+                    <p class="text-gray-700"><span class="font-semibold text-gray-800">Làm việc nhóm:</span> Có khả năng phối hợp hiệu quả với đồng nghiệp và các bộ phận khác.</p>
+                    <p class="text-gray-700"><span class="font-semibold text-gray-800">Giải quyết vấn đề:</span> Nhanh nhạy trong việc phân tích và tìm ra giải pháp cho các vấn đề kỹ thuật.</p>
+                    <p class="text-gray-700"><span class="font-semibold text-gray-800">Tiếng Anh:</span> <span class="text-gray-600">(Điền trình độ, ví dụ: TOEIC 700)</span> - Đọc hiểu tài liệu chuyên ngành và giao tiếp cơ bản.</p>
+                </div>
+            </div>
 
-/*
- * Putting it all together
- */
-(function(canvas) {
-  var context = canvas.getContext('2d'),
-      particles = new ParticlePool(settings.particles.length),
-      particleRate = settings.particles.length / settings.particles.duration, // particles/sec
-      time;
-  
-  // get point on heart with -PI <= t <= PI
-  function pointOnHeart(t) {
-    return new Point(
-      160 * Math.pow(Math.sin(t), 3),
-      130 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 25
-    );
-  }
-  
-  // creating the particle image using a dummy canvas
-  var image = (function() {
-    var canvas  = document.createElement('canvas'),
-        context = canvas.getContext('2d');
-    canvas.width  = settings.particles.size;
-    canvas.height = settings.particles.size;
-    // helper function to create the path
-    function to(t) {
-      var point = pointOnHeart(t);
-      point.x = settings.particles.size / 2 + point.x * settings.particles.size / 350;
-      point.y = settings.particles.size / 2 - point.y * settings.particles.size / 350;
-      return point;
-    }
-    // create the path
-    context.beginPath();
-    var t = -Math.PI;
-    var point = to(t);
-    context.moveTo(point.x, point.y);
-    while (t < Math.PI) {
-      t += 0.01; // baby steps!
-      point = to(t);
-      context.lineTo(point.x, point.y);
-    }
-    context.closePath();
-    // create the fill
-    context.fillStyle = '#ea80b0';
-    context.fill();
-    // create the image
-    var image = new Image();
-    image.src = canvas.toDataURL();
-    return image;
-  })();
-  
-  // render that thing!
-  function render() {
-    // next animation frame
-    requestAnimationFrame(render);
-    
-    // update time
-    var newTime   = new Date().getTime() / 1000,
-        deltaTime = newTime - (time || newTime);
-    time = newTime;
-    
-    // clear canvas
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // create new particles
-    var amount = particleRate * deltaTime;
-    for (var i = 0; i < amount; i++) {
-      var pos = pointOnHeart(Math.PI - 2 * Math.PI * Math.random());
-      var dir = pos.clone().length(settings.particles.velocity);
-      particles.add(canvas.width / 2 + pos.x, canvas.height / 2 - pos.y, dir.x, -dir.y);
-    }
-    
-    // update and draw particles
-    particles.update(deltaTime);
-    particles.draw(context, image);
-  }
-  
-  // handle (re-)sizing of the canvas
-  function onResize() {
-    canvas.width  = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
-  }
-  window.onresize = onResize;
-  
-  // delay rendering bootstrap
-  setTimeout(function() {
-    onResize();
-    render();
-  }, 10);
-})(document.getElementById('pinkboard'));
-  </script>
- </BODY>
-</HTML>
+            <!-- Other Activities -->
+            <div class="card">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-star mr-3 icon"></i>Hoạt động khác</h3>
+                <div class="space-y-2">
+                    <p class="text-gray-700"><span class="font-semibold text-gray-800">Chứng chỉ:</span> <span class="text-gray-600">(Điền các chứng chỉ đã đạt được, ví dụ: Chứng chỉ an toàn hàng hải...)</span></p>
+                    <p class="text-gray-700"><span class="font-semibold text-gray-800">Sở thích:</span> <span class="text-gray-600">(Điền sở thích, ví dụ: Đọc sách, nghiên cứu công nghệ mới)</span></p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="text-center mt-8 text-gray-600">
+            <p>Xin cảm ơn đã xem qua hồ sơ của tôi!</p>
+        </div>
+    </div>
+</body>
+</html>
