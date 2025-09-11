@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mưa Sao Băng Tình Yêu</title>
+    <!-- Thư viện Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(-45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(135deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1) rotate(-45deg);
+            }
+            50% {
+                transform: scale(1.1) rotate(-45deg);
+            }
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a080c;
+            overflow: hidden; /* Ngăn cuộn trang */
+            cursor: none;
+        }
+
+        .heart {
+            position: absolute;
+            top: 0;
+            background-color: #ff5c5c;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation-name: fall;
+            animation-timing-function: linear;
+            z-index: 10;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            background-color: #ff5c5c;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <!-- Các trái tim sẽ được tạo bởi JavaScript và thêm vào đây -->
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white text-center drop-shadow-lg z-20">
+        Mưa Sao Băng Tình Yêu
+    </h1>
+
+    <script>
+        const body = document.body;
+
+        // Hàm tạo một trái tim mới
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            // Kích thước ngẫu nhiên cho trái tim
+            const size = Math.random() * 50 + 20; // Kích thước từ 20px đến 70px
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
+
+            // Vị trí ngẫu nhiên ở phía trên màn hình
+            heart.style.left = `${Math.random() * 100}vw`;
+
+            // Thời gian rơi ngẫu nhiên để tạo hiệu ứng "mưa"
+            const duration = Math.random() * 3 + 4; // Thời gian từ 4s đến 7s
+            heart.style.animationDuration = `${duration}s`;
+
+            // Cấu hình các phần của trái tim
+            heart.style.transform = 'rotate(-45deg)';
+            heart.style.borderRadius = '8px';
+
+            const before = heart.appendChild(document.createElement('div'));
+            before.style.width = '100%';
+            before.style.height = '100%';
+            before.style.borderRadius = '50%';
+            before.style.position = 'absolute';
+            before.style.top = '-50%';
+            before.style.left = '0';
+            before.style.backgroundColor = '#ff5c5c';
+
+            const after = heart.appendChild(document.createElement('div'));
+            after.style.width = '100%';
+            after.style.height = '100%';
+            after.style.borderRadius = '50%';
+            after.style.position = 'absolute';
+            after.style.top = '0';
+            after.style.left = '50%';
+            after.style.backgroundColor = '#ff5c5c';
+
+            // Thêm trái tim vào body
+            body.appendChild(heart);
+
+            // Xóa trái tim khỏi DOM sau khi kết thúc animation để tránh tràn bộ nhớ
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        }
+
+        // Tạo trái tim liên tục sau mỗi khoảng thời gian ngẫu nhiên
+        setInterval(createHeart, 50);
+    </script>
+</body>
+</html>
