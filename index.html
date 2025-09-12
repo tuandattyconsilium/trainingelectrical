@@ -38,6 +38,14 @@
             height: 24px;
             text-align: center;
         }
+        .stock-up {
+            color: #16a34a; /* Green */
+            transition: color 0.5s ease-in-out;
+        }
+        .stock-down {
+            color: #ef4444; /* Red */
+            transition: color 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-6 sm:p-10 flex justify-center items-center min-h-screen">
@@ -111,6 +119,25 @@
                 </div>
             </div>
 
+            <!-- Stock Ticker Section -->
+            <div class="card md:col-span-2">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-chart-line mr-3 icon"></i>Cập nhật thị trường chứng khoán</h3>
+                <div id="stock-ticker" class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mã CK</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giá</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thay đổi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200" id="stock-table-body">
+                            <!-- Stock data will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <!-- Soft Skills & Languages -->
             <div class="card">
                 <h3 class="text-2xl font-bold text-gray-800 mb-4"><i class="fas fa-users mr-3 icon"></i>Kỹ năng mềm & Ngoại ngữ</h3>
@@ -136,5 +163,61 @@
             <p>Xin cảm ơn đã xem qua hồ sơ của tôi!</p>
         </div>
     </div>
+    
+    <script>
+        const stocks = [
+            { symbol: 'FPT', price: 90.0, change: 0.5 },
+            { symbol: 'VIC', price: 55.5, change: -1.2 },
+            { symbol: 'HPG', price: 28.7, change: 0.2 },
+            { symbol: 'VNM', price: 75.3, change: -0.8 },
+            { symbol: 'VCB', price: 85.0, change: 0.7 },
+            { symbol: 'MSN', price: 72.1, change: -1.0 },
+            { symbol: 'VHM', price: 42.5, change: 0.4 },
+            { symbol: 'TCB', price: 31.8, change: -0.5 },
+            { symbol: 'CTG', price: 30.2, change: 0.3 },
+            { symbol: 'AAPL', price: 180.5, change: 1.1 },
+            { symbol: 'GOOG', price: 145.9, change: -0.9 },
+            { symbol: 'AMZN', price: 135.2, change: 0.6 },
+            { symbol: 'NVDA', price: 450.7, change: 2.5 },
+            { symbol: 'TSLA', price: 250.0, change: -2.1 },
+        ];
+
+        const stockTableBody = document.getElementById('stock-table-body');
+        
+        function renderStocks() {
+            stockTableBody.innerHTML = ''; // Clear table
+            stocks.forEach(stock => {
+                const changeClass = stock.change > 0 ? 'stock-up' : 'stock-down';
+                const changeIcon = stock.change > 0 ? '<i class="fas fa-caret-up"></i>' : '<i class="fas fa-caret-down"></i>';
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${stock.symbol}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${stock.price.toFixed(2)}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm ${changeClass}">
+                        ${changeIcon} ${Math.abs(stock.change).toFixed(2)}
+                    </td>
+                `;
+                stockTableBody.appendChild(row);
+            });
+        }
+
+        function updateStockData() {
+            stocks.forEach(stock => {
+                const randomChange = (Math.random() - 0.5) * 2;
+                stock.price += randomChange;
+                stock.change = randomChange;
+                if (stock.price < 0) {
+                    stock.price = 0.01;
+                }
+            });
+            renderStocks();
+        }
+
+        // Initial render
+        renderStocks();
+
+        // Update every 2 seconds
+        setInterval(updateStockData, 2000);
+    </script>
 </body>
 </html>
